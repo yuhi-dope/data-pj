@@ -1,15 +1,15 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+  </div>
 </template>
 
 <script>
-import axios from "axios";
 export default {
-  async created() {
-    let res1=await axios.get("data1.json");
-     console.log(res1);
-    let res2=await axios.get("data2.json");
-     console.log(res2);
+  async created(){
+    await this.$store.dispatch("changeDataAction1");
+    console.log(this.$store.state.list.data1);
+    await this.$store.dispatch("changeDataAction2");
+    console.log(this.$store.state.list.data2);
   },
-}
+};
 </script>
